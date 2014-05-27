@@ -1,6 +1,7 @@
 package com.java.ax;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Album {
 
@@ -32,8 +33,16 @@ public class Album {
 		tracks.add(track);
 	}
 
+	public void sortByDefault() {
+		Collections.sort(tracks);
+	}
+	
 	public void sortByTitle() {
-		
+		Collections.sort(tracks, new Track.OrderByTitle());
+	}
+
+	public void sortByDuration() {
+		Collections.sort(tracks, new Track.OrderByDuration());
 	}
 
 }

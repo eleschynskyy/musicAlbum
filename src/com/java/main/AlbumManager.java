@@ -37,6 +37,7 @@ public class AlbumManager {
 						record.put(keys[i], dataParts[i]);
 					}
 					Track track = new Track()
+							.setId(record.get("id"))
 							.setSinger(record.get("singer"))
 							.setTitle(record.get("track_title"))
 							.setDuration(record.get("track_duration"));
@@ -60,6 +61,7 @@ public class AlbumManager {
 		System.out.println("-------------------------------------------------");
 		printAlbumTracks();
 		System.out.println("-------------------------------------------------");
+		System.out.println();
 	}
 
 	private void printAlbumTracks() {
@@ -74,9 +76,19 @@ public class AlbumManager {
 		return album.getTitle();
 	}
 
+	public void sortByDefault() {
+		sortedBy = "default";
+		album.sortByDefault();
+	}
+
 	public void sortByTitle() {
 		sortedBy = "title";
 		album.sortByTitle();
+	}
+
+	public void sortByDuration() {
+		sortedBy = "duration";
+		album.sortByDuration();
 	}
 
 }
